@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+/* Agentology Design System — Topology.vc-inspired minimalism */
+:root {
+  /* Core palette */
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #111111;
+  --bg-elevated: #1A1A1A;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.15);
+  --text-primary: #FAFAFA;
+  --text-secondary: #A1A1A1;
+  --text-muted: #666666;
+  --accent: #FAFAFA;
+  --accent-hover: #D4D4D4;
+  --live: #EF4444;
+  --success: #22C55E;
+}
+
+@theme inline {
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Cinematic scroll sections */
+.scroll-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+/* Display headings — serif (Instrument Serif) */
+h1, h2 {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Smaller headings — sans-serif (Space Grotesk) */
+h3, h4, h5, h6 {
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Card */
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+}
+
+/* Primary button — white bg, black text */
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg-primary);
+  font-weight: 600;
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Secondary button — transparent bg, white border */
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  font-weight: 500;
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--border-hover);
+}
+
+/* Section number labels — "01." style */
+.section-number {
+  font-family: var(--font-mono), monospace;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+/* ============ Animations ============ */
+
+/* Shimmer effect for skeleton loading */
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Fade in up */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s ease-out forwards;
+}
+
+/* Live indicator pulse */
+@keyframes live-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+.animate-live-pulse {
+  animation: live-pulse 1.5s ease-in-out infinite;
+}
+
